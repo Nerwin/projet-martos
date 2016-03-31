@@ -1,16 +1,13 @@
 <template name="surveys">
-    <div style="margin-top:50px;">
+    <div style="margin-top:60px;">
         {{> yield}}
     </div>
 </template>
 
 <template name="survey">
     {{#ionContent}}
-    <div>
-        <p>Create a new survey here : </p>
-        <a class="item" href="createSurvey">
-            <p>New survey</p>
-        </a>
+    <div style="margin-top:50px;">
+        <button class="button button-block button-positive" id="newSurvey">Create new survey</button>
     </div>
     {{#ionList class="list card"}} {{#each item}}
     <div class="item item-avatar">
@@ -36,21 +33,22 @@
     {{#ionContent}} {{> newSurvey}} {{/ionContent}}
 </template>
 <template name="newSurvey">
-    {{#ionContent}}
-    <div class="list">
+    {{#ionBody}} {{#ionContent}} {{#ionList}}
+    <div class="list targetList" style="margin-top:50px;">
+        <span>Title (this will be seen as the question of your survey)</span>
         <label class="item item-input item-floating-label">
-            <span class="input-label">What's your question ?</span>
-            <input type="text" placeholder="What's your question ?">
+            <input type="text" placeholder="Question">
         </label>
+        <span>Ending date of the survey</span>
         <label class="item item-input item-floating-label">
-            <span class="input-label">Ending date</span>
             <input type="text" placeholder="Ending date">
         </label>
+        <span>What are the possible answer ?</span>
         <label class="item item-input item-floating-label">
-            <span class="input-label">What are the possible answer ?</span>
-            <input type="text" placeholder="What are the possible answer ?">
+            <input type="text" placeholder="First answer">
         </label>
+        <i class="fa fa-plus addAnswer"></i>
     </div>
-    <button class="button button-block button-positive">Submit</button>
-    {{/ionContent}}
+    <button class="button button-block button-positive" id="submitForm">Submit</button>
+    {{/ionList}} {{/ionContent}} {{/ionBody}}
 </template>

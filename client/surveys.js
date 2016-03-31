@@ -17,8 +17,15 @@ Template.survey.helpers({
 });
 
 Template.survey.events({
-    'click button'(event, instance) {
-        // increment the counter when button is clicked
-        IonPopup.alert({ title: 'Survey page', subTitle: 'Survey', template: 'PopUp for survey page' });
+    'click #newSurvey'(event, instance) {
+        Router.go('/createSurvey');
     },
 });
+Template.newSurvey.events({
+    'click #submitForm'(event, instance) {
+        IonPopup.alert({ title: 'New survey sent', template: 'This may take few second to create your survey :)' });
+    },
+    'click .addAnswer'(event,instance){
+        $('.targetList').append(' <label class="item item-input item-floating-label"><span class="input-label">New answer</span><input type="text" placeholder="other option"></label><i class="fa fa-plus addAnswer"></i>');
+    }
+})

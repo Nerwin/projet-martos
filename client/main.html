@@ -23,6 +23,7 @@
 </template>
 
 <template name="Hometemplate">
+    {{#ionBody}}
     {{#ionContent}} {{#ionList class="list card"}} {{#each item}}
     <div class="item item-avatar">
         <img src="/images/avatar-nico.jpg">
@@ -41,4 +42,5 @@
         </p>
     </div>
     {{/each}} {{/ionList}} {{/ionContent}}
+    {{/ionBody}}
 </template>
