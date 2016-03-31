@@ -1,0 +1,32 @@
+<template name="meetings">
+    <div style="margin-top:50px;">
+        {{> yield}}
+    </div>
+</template>
+
+<template name="meeting">
+    {{#ionContent}}
+    <div>
+        <p>Create a new survey here : </p>
+        <a class="item" href="createSurvey">
+            <p>New survey</p>
+        </a>
+    </div>
+    {{#ionList class="list card"}} {{#each item}}
+    <div class="item item-avatar">
+        <img src="/images/avatar-nico.jpg">
+        <h2>{{user}}</h2>
+        <p>{{date}}</p>
+    </div>
+    <div class="item item-body">
+        <img class="full-image" src="/images/Group_Meeting.png" style="width:150px;height:150px;">
+        <p>
+            <p>My meeting...</p>
+        </p>
+        <p>
+            <a href="#" class="subdued">1 Like</a>
+            <a href="#" class="subdued">5 Comments</a>
+        </p>
+    </div>
+    {{/each}} {{/ionList}} {{/ionContent}}
+</template>

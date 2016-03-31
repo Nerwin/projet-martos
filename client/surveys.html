@@ -1,0 +1,56 @@
+<template name="surveys">
+    <div style="margin-top:50px;">
+        {{> yield}}
+    </div>
+</template>
+
+<template name="survey">
+    {{#ionContent}}
+    <div>
+        <p>Create a new survey here : </p>
+        <a class="item" href="createSurvey">
+            <p>New survey</p>
+        </a>
+    </div>
+    {{#ionList class="list card"}} {{#each item}}
+    <div class="item item-avatar">
+        <img src="/images/avatar-nico.jpg">
+        <h2>{{user}}</h2>
+        <p>{{date}}</p>
+    </div>
+    <div class="item item-body">
+        <img class="full-image" src="/images/SurveyCheckmark.jpg" style="width:150px;height:150px;">
+        <p>
+            <p>My survey...</p>
+        </p>
+        <p>
+            <a href="#" class="subdued">1 Like</a>
+            <a href="#" class="subdued">5 Comments</a>
+        </p>
+    </div>
+    {{/each}} {{/ionList}} {{/ionContent}}
+</template>
+
+
+<template name="createSurvey">
+    {{#ionContent}} {{> newSurvey}} {{/ionContent}}
+</template>
+<template name="newSurvey">
+    {{#ionContent}}
+    <div class="list">
+        <label class="item item-input item-floating-label">
+            <span class="input-label">What's your question ?</span>
+            <input type="text" placeholder="What's your question ?">
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Ending date</span>
+            <input type="text" placeholder="Ending date">
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">What are the possible answer ?</span>
+            <input type="text" placeholder="What are the possible answer ?">
+        </label>
+    </div>
+    <button class="button button-block button-positive">Submit</button>
+    {{/ionContent}}
+</template>

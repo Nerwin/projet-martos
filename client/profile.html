@@ -1,0 +1,27 @@
+<template name="profile">
+    <div style="margin-top:50px;">
+        {{> yield}}
+    </div>
+</template>
+
+<template name="system">
+    {{#ionBody}}
+    <div class="list">
+        <a class="item item-icon-left" href="#">
+            <i class="fa fa-home"></i> About us
+        </a>
+        <a class="item item-icon-left item-icon-right" href="#">
+            <i class="fa fa-mobile"></i> Newsletter and what's comming up !
+            <span class="badge badge-assertive">5 news </span>
+        </a>
+        <a class="item item-icon-left" href="#">
+            <i class="fa fa-key"></i> Change password
+            <span class="item-note"> {{lastTime}} </span>
+        </a>
+        <a class="item item-icon-left" href="#">
+            <i class="fa fa-user"></i> Change pseudo
+            <span class="badge badge-assertive">10 day's ago</span>
+        </a>
+    </div>
+    {{/ionBody}}
+</template>
