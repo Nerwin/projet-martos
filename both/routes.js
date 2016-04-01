@@ -11,14 +11,15 @@ Router.route('/createSurvey',function(){
    this.render("createSurvey")
 });
 
-
-
 Router.route('/meetings',function(){
    this.layout("meetings") 
    this.render("meeting"); 
 });
 
-
+Router.route('/createMeeting',function(){
+   this.layout("createMeeting"); 
+   this.render("createMeeting");
+});
 
 Router.route('/profile',function(){
    this.layout('profile')

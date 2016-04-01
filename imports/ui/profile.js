@@ -1,3 +1,5 @@
+import './profile.html';
+
 Template.system.onCreated(function helloOnCreated() {
     // counter starts at 0
     this.counter = new ReactiveVar(0);

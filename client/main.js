@@ -2,6 +2,9 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
+import '../imports/ui/meetings.js'
+import '../imports/ui/profile.js'
+import '../imports/ui/surveys.js'
 
 Template.Hometemplate.onCreated(function helloOnCreated() {
     // counter starts at 0
@@ -16,13 +19,14 @@ Template.Hometemplate.helpers({
     date() {
         return Template.instance().date.get();
     },
-    item(){
-        var tab = ["1","2","3"];
+    item() {
+        const tab = ["1", "2", "3"];
         return tab;
+       
     },
     target() {
-        target = ["Survey", "Meeting"];
-        var rand = _.random(0,1);
+        const target = ["Survey", "Meeting"];
+        let rand = _.random(0, 1);
         console.log(target[rand]);
         return target[rand];
     }
