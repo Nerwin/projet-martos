@@ -3,44 +3,66 @@
 </head>
 
 <body>
-    {{#ionBody}} {{>header}} {{/ionBody}}
+    {{#ionBody}} {{#ionNavView}} {{#ionContent}} {{> yield}} {{/ionContent}} {{/ionNavView}} {{/ionBody}}
 </body>
+
+<template name="Home">
+    {{#if isConnectedUser}} {{> header}}
+    <div style="margin-top:50px;">
+        {{> Hometemplate}}
+    </div>
+    {{else}} {{> HometemplateNotConnected}} {{/if}}
+</template>
+
+<template name="Hometemplate">
+    {{#ionList class="list card"}} {{#each item}}
+    <div style="margin-top:50px">
+        <div class="item item-avatar">
+            <img src="/images/avatar-nico.jpg">
+            <h2>{{user}}</h2>
+            <p>{{date}}</p>
+        </div>
+        <div class="item item-body">
+            <img class="full-image" src="/images/constructing.jpg" style="width:150px;height:150px;">
+            <p>
+                <p>{{user}} - posted a new {{target}} .... </p>
+                <p>click and see what's going on :)</p>
+            </p>
+            <p>
+                <a href="#" class="subdued">1 Like</a>
+                <a href="#" class="subdued">5 Comments</a>
+            </p>
+        </div>
+    </div>
+    {{/each}} {{/ionList}}
+</template>
+
+<template name="HometemplateNotConnected">
+    <div style="margin-top:50px;">
+        <p>Welcome to survey & meeting, pleasee register to acces to our whole application :)</p>
+        <div class="list">
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="Email">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Password</span>
+                <input type="text" placeholder="password">
+            </label>
+        </div>
+        <button class="button button-block button-positive" id="connexion">
+            Connexion
+        </button>
+    </div>
+</template>
 
 <template name="header">
     {{#ionTabs class="tabs-positive tabs-icon-top"}} {{> ionTab title="Home" path="home" iconOff="ios-paper" iconOn="ios-paper"}}
     {{> ionTab title="Surveys" path="surveys" iconOff="ios-paper" iconOn="ios-paper"}} {{> ionTab title="Meetings" path="meetings"
-    iconOff="checkmark-circled" iconOn="checkmark-circled"}} {{/ionTabs}}
+    iconOff="ios-paper" iconOn="ios-paper"}} {{/ionTabs}}
     <div class="bar bar-header">
+        <button class="button icon ion-navicon"></button>
         <div class="h1 title">Survey & meeting</div>
         <button class="button button-clear button-positive" id="settings">Settings</button>
     </div>
-</template>
-
-<template name="Home">
-    <div style="margin-top:50px;">
-        {{> yield}}
-    </div>
-</template>
-
-<template name="Hometemplate">
-    {{#ionBody}}
-    {{#ionContent}} {{#ionList class="list card"}} {{#each item}}
-    <div class="item item-avatar">
-        <img src="/images/avatar-nico.jpg">
-        <h2>{{user}}</h2>
-        <p>{{date}}</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="/images/constructing.jpg" style="width:150px;height:150px;">
-        <p>
-            <p>{{user}} - posted a new {{target}} .... </p>
-            <p>click and see what's going on :)</p>
-        </p>
-        <p>
-            <a href="#" class="subdued">1 Like</a>
-            <a href="#" class="subdued">5 Comments</a>
-        </p>
-    </div>
-    {{/each}} {{/ionList}} {{/ionContent}}
-    {{/ionBody}}
 </template>

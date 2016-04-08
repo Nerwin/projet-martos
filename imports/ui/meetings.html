@@ -1,11 +1,6 @@
-<template name="meetings">
-    <div style="margin-top:50px;">
-        {{> yield}}
-    </div>
-</template>
-
 <template name="meeting">
-    {{#ionContent}}
+    {{#if connectedUser}}
+    {{>header}}
     <div style="margin-top:50px;">
         <button class="button button-block button-positive" id="newMeeting">Create new meetings</button>
     </div>
@@ -25,21 +20,17 @@
             <a href="#" class="subdued">5 Comments</a>
         </p>
     </div>
-    {{/each}} {{/ionList}} {{/ionContent}}
+    {{/each}} {{/ionList}} {{else}} {{> HometemplateNotConnected}} {{/if}} 
 </template>
 
-
-<template name="createMeeting">
-    {{#ionContent}} {{> newMeeting}} {{/ionContent}}
-</template>
 <template name="newMeeting">
-    {{#ionBody}} {{#ionContent}} {{#ionList}}
+    {{#ionList}}
     <div class="list targetList" style="margin-top:50px;">
         <span>Title (this will be seen as the question of your meeting)</span>
         <label class="item item-input item-floating-label">
             <input type="text" placeholder="Question">
         </label>
-        <span>Ending date of the meeting</span>
+        <span>Choose a date for the meeting</span>
         <label class="item item-input item-floating-label">
             <input type="text" placeholder="Ending date">
         </label>
@@ -47,8 +38,8 @@
         <label class="item item-input item-floating-label">
             <input type="text" placeholder="First answer">
         </label>
-        <i class="fa fa-plus addAnswer"></i>
+        <i class="icon ion-plus-circled addAnswer"></i>
     </div>
     <button class="button button-block button-positive" id="submitForm">Submit</button>
-    {{/ionList}} {{/ionContent}} {{/ionBody}}
+    {{/ionList}}
 </template>

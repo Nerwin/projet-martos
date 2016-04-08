@@ -1,4 +1,5 @@
 import './meetings.html';
+import { Session } from 'meteor/session';
 
 Template.meeting.onCreated(function helloOnCreated() {
     this.user = new ReactiveVar("Nicolas");
@@ -16,6 +17,9 @@ Template.meeting.helpers({
         const tab = ["1", "2", "3"];
         return tab;
     },
+   connectedUser(){
+       return Session.get('isConnectedUser');
+   }
 });
 
 Template.meeting.events({
@@ -28,6 +32,6 @@ Template.newMeeting.events({
         IonPopup.alert({ title: 'New meeting sent', template: 'This may take few second to create your meeting :)' });
     },
     'click .addAnswer'(event,instance){
-        $('.targetList').append(' <label class="item item-input item-floating-label"><span class="input-label">New answer</span><input type="text" placeholder="other option"></label><i class="fa fa-plus addAnswer"></i>');
+        $('.targetList').append(' <label class="item item-input item-floating-label"><span class="input-label">New answer</span><input type="text" placeholder="other option"></label><i class="icon ion-plus-circled addAnswer"></i>');
     }
 });

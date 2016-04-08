@@ -1,9 +1,11 @@
 import './profile.html';
+import { Session } from 'meteor/session';
 
 Template.system.onCreated(function helloOnCreated() {
     // counter starts at 0
     this.counter = new ReactiveVar(0);
     this.date = new ReactiveVar(moment(new Date()));
+    $('#aboutUs').hide();
 });
 
 Template.system.helpers({
@@ -12,13 +14,14 @@ Template.system.helpers({
     },
     lastTime() {
         return Template.instance().date.get();
-    }
+    },
+    connectedUser(){
+       return Session.get('isConnectedUser');
+   }
 });
 
 Template.system.events({
-    'click button'(event, instance) {
-        // increment the counter when button is clicked
-        instance.counter.set(instance.counter.get() + 1);
-        IonPopup.alert({ title: 'profile page', subTitle: 'profile', template: 'PopUp for profile page' });
-    },
+    'click .aboutus'(event,instance){
+        $('#aboutUs').show();
+    }
 });
