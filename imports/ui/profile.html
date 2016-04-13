@@ -1,26 +1,110 @@
 <template name="system">
-    {{#if connectedUser}}
-    {{>header}}
-    {{#ionList class="list"}}
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}} {{#ionList class="list"}}
     <div style="margin-top:50px">
         <a class="item item-icon-left" href="#">
-            <i class="icon ion-email"></i> Check message
+            <i class="icon ion-person-add"></i> Contacts
+            <span class="badge badge-positive">150</span>
         </a>
-
-        <a class="item item-icon-left item-icon-right" href="#">
-            <i class="icon ion-ios-personadd"></i> Change password
-            <i class="icon ion-ios-telephone-outline"></i>
+        <a class="item item-icon-left item-icon-right passwordDiv" href="#">
+            <i class="icon ion-unlocked"></i> Change password
+            <span class="badge badge-positive">10 day's ago</span>
         </a>
-
-        <a class="item item-icon-left" href="#">
+        {{> changePassword}}
+        <a class="item item-icon-left pseudoDiv" href="#">
             <i class="icon ion-person"></i> Change pseudo
-            <span class="badge badge-assertive">10 day's ago</span>
+            <span class="badge badge-positive">{{user}}</span>
         </a>
-
-        <a class="item item-icon-left" href="#">
-            <i class="icon ion-person-stalker"></i> Friends
-            <span class="badge badge-assertive">0</span>
+        {{> changePseudo}}
+        <a class="item item-icon-left notificationDiv" href="#">
+            <i class="icon ion-ios-bell"></i> Notifications
+            <span class="badge badge-positive">0</span>
         </a>
+        {{> notifications}}
+        <a class="item item-icon-left aboutusDiv" href="#">
+            <i class="icon ion-information-circled"></i> About us
+        </a>
+        {{> aboutUs}}
     </div>
-    {{/ionList}} {{else}} {{> HometemplateNotConnected}} {{/if}}
+    {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
+</template>
+
+<template name="changePassword">
+    <div class="password" style="display:none">
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <input type="password" placeholder="Old password">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <input type="password" placeholder="New password">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <input type="password" placeholder="Confirm new password">
+            </label>
+            <button class="button button-block button-positive">
+                Modify
+            </button>
+        </div>
+    </div>
+</template>
+
+<template name="changePseudo">
+    <div style="display:none" class="pseudo">
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <input type="text" placeholder="New pseudo">
+            </label>
+        </div>
+        <button class="button button-block button-positive">
+            Modify
+        </button>
+    </div>
+</template>
+
+<template name="notifications">
+    <div class="notifications" style="display:none">
+        <ul class="list">
+            <li class="item item-toggle">
+                On new meetings
+                <label class="toggle toggle-positive">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                On new survey
+                <label class="toggle toggle-positive">
+                    <input type="checkbox" {{isChecked}}>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                On new comments
+                <label class="toggle toggle-positive">
+                    <input type="checkbox" {{isChecked}}>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                On new likes
+                <label class="toggle toggle-positive">
+                    <input type="checkbox" {{isChecked}}>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<template name="aboutUs">
+    <div class="aboutus" style="display:none">
+        <p>TODO FILL THIS</p>
+    </div>
 </template>

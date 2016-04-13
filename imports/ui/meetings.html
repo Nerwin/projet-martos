@@ -1,6 +1,5 @@
 <template name="meeting">
-    {{#if connectedUser}}
-    {{>header}}
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}}
     <div style="margin-top:50px;">
         <button class="button button-block button-positive" id="newMeeting">Create new meetings</button>
     </div>
@@ -20,26 +19,26 @@
             <a href="#" class="subdued">5 Comments</a>
         </p>
     </div>
-    {{/each}} {{/ionList}} {{else}} {{> HometemplateNotConnected}} {{/if}} 
+    {{/each}} {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
 </template>
 
 <template name="newMeeting">
-    {{#ionList}}
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}} {{#ionList}}
     <div class="list targetList" style="margin-top:50px;">
-        <span>Title (this will be seen as the question of your meeting)</span>
-        <label class="item item-input item-floating-label">
-            <input type="text" placeholder="Question">
-        </label>
-        <span>Choose a date for the meeting</span>
-        <label class="item item-input item-floating-label">
-            <input type="text" placeholder="Ending date">
-        </label>
-        <span>What are the possible answer ?</span>
-        <label class="item item-input item-floating-label">
-            <input type="text" placeholder="First answer">
-        </label>
-        <i class="icon ion-plus-circled addAnswer"></i>
+      <label class="item item-input item-stacked-label">
+          <span class="input-label">Title</span>
+          <input type="text" placeholder="Title">
+      </label>
+      <label class="item item-input item-stacked-label">
+          <span class="input-label">Ending Date</span>
+          <input type="datetime-local" placeholder="Ending date">
+      </label>
+      <label class="item item-input item-stacked-label">
+          <span class="input-label">Possible date</span>
+          <input type="datetime-local" placeholder="Answer">
+      </label>
+      <i class="icon ion-plus-circled addAnswer"></i>
     </div>
     <button class="button button-block button-positive" id="submitForm">Submit</button>
-    {{/ionList}}
+    {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
 </template>
