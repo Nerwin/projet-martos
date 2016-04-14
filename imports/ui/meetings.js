@@ -11,7 +11,7 @@ Template.newMeeting.onCreated(function createdMeeting() {
 });
 
 Template.meeting.onRendered(function(){
-  Session.set("currentPage","Meeting page");
+  Session.set("currentPage","Meeting");
 });
 
 Template.meeting.helpers({
@@ -44,11 +44,10 @@ Template.meeting.helpers({
     }
 });
 
-Template.meeting.events({
-    'click #newMeeting' (event, instance) {
-        Router.go('/createMeeting');
-    },
+Template.newMeeting.onRendered(function(){
+  Session.set("currentPage","New meeting");
 });
+
 Template.newMeeting.events({
     'click #submitForm' (event, instance) {
         IonPopup.alert({

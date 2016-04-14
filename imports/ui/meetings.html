@@ -1,8 +1,5 @@
 <template name="meeting">
     {{#if isConnectedUser}} {{>header}} {{#ionContent}}
-    <div style="margin-top:50px;">
-        <button class="button button-block button-positive" id="newMeeting">Create new meetings</button>
-    </div>
     {{#ionList class="list card"}} {{#each item}}
     <div class="item item-avatar">
         <img src="/images/avatar-nico.jpg">
