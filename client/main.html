@@ -57,9 +57,9 @@
 </template>
 
 <template name="header">
-    <div class="bar bar-header">
-        <div class="h1 title">Survey & meeting</div>
-        <button class="button button-clear button-positive" id="settings">Settings</button>
+    <div class="bar bar-header bar-positive">
+        <div class="h1 title">{{currentPage}}</div>
+        <button class="button button-clear" id="settings"><i class="icon ion-gear-b"></i></button>
     </div>
     {{#ionTabs class="tabs-positive tabs-icon-top"}} {{> ionTab title="Home" path="home" iconOff="ios-home" iconOn="ios-home"}} {{> ionTab title="Surveys" path="surveys" iconOff="ios-compose" iconOn="ios-compose"}} {{> ionTab title="Meetings" path="meetings"
     iconOff="ios-calendar" iconOn="ios-calendar"}} {{/ionTabs}}

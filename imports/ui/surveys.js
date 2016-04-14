@@ -10,7 +10,9 @@ Template.survey.onCreated(function helloOnCreated() {
 Template.newSurvey.onCreated(function createdSurvey() {
     this.counter = new ReactiveVar(0);
 });
-
+Template.survey.onRendered(function(){
+  Session.set("currentPage","Survey page");
+});
 Template.survey.helpers({
     user() {
         return Template.instance().user.get();
@@ -24,6 +26,19 @@ Template.survey.helpers({
     },
     isConnectedUser() {
         return Session.get('isConnectedUser');
+    },
+    answer(){
+      const tab = [{name : "Riquelme"},{name : "Dareau"},{name : "Lacroix"}];
+      return tab;
+    },
+    description(){
+      return "Description de mon survey";
+    },
+    endDate(){
+      return moment(new Date())._d;
+    },
+    title(){
+      return "Mon titre du survey";
     }
 });
 

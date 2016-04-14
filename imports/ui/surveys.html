@@ -10,17 +10,28 @@
         <p>{{date}}</p>
     </div>
     <div class="item item-body">
-        <img class="full-image" src="/images/SurveyCheckmark.jpg" style="width:150px;height:150px;">
-        <p>
-            <p>My survey...</p>
-        </p>
-        <p>
-            <a href="#" class="subdued">1 Like</a>
-            <a href="#" class="subdued">5 Comments</a>
-        </p>
+        <div class="row">
+            <div class="col">
+                <h2>{{title}}</h2>
+                <p>{{endDate}}</p>
+                <p>{{description}}</p>
+            </div>
+            <div class="col">
+                <h2>Possible answer </h2>
+                <ul class="list">
+                    {{#each answer}}
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" checked="">
+                        </label>
+                        {{name}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
     </div>
-    {{/each}} {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
-
+    {{/each}} {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
 </template>
 
 <template name="newSurvey">

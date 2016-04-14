@@ -10,14 +10,26 @@
         <p>{{date}}</p>
     </div>
     <div class="item item-body">
-        <img class="full-image" src="/images/Group_Meeting.png" style="width:150px;height:150px;">
-        <p>
-            <p>My meeting...</p>
-        </p>
-        <p>
-            <a href="#" class="subdued">1 Like</a>
-            <a href="#" class="subdued">5 Comments</a>
-        </p>
+        <div class="row">
+            <div class="col">
+                <h2>{{title}}</h2>
+                <p>{{endDate}}</p>
+                <p>{{description}}</p>
+            </div>
+            <div class="col">
+                <h2>Possible answer </h2>
+                <ul class="list">
+                    {{#each answer}}
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" checked="">
+                        </label>
+                        {{name}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
     </div>
     {{/each}} {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
 </template>
@@ -25,19 +37,23 @@
 <template name="newMeeting">
     {{#if isConnectedUser}} {{>header}} {{#ionContent}} {{#ionList}}
     <div class="list targetList" style="margin-top:50px;">
-      <label class="item item-input item-stacked-label">
-          <span class="input-label">Title</span>
-          <input type="text" placeholder="Title">
-      </label>
-      <label class="item item-input item-stacked-label">
-          <span class="input-label">Ending Date</span>
-          <input type="datetime-local" placeholder="Ending date">
-      </label>
-      <label class="item item-input item-stacked-label">
-          <span class="input-label">Possible date</span>
-          <input type="datetime-local" placeholder="Answer">
-      </label>
-      <i class="icon ion-plus-circled addAnswer"></i>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Title</span>
+            <input type="text" placeholder="Title">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Description</span>
+            <input type="text" placeholder="Description">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Ending Date</span>
+            <input type="datetime-local" placeholder="Ending date">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Possible date</span>
+            <input type="datetime-local" placeholder="Answer">
+        </label>
+        <i class="icon ion-plus-circled addAnswer"></i>
     </div>
     <button class="button button-block button-positive" id="submitForm">Submit</button>
     {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}

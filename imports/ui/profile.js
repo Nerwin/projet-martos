@@ -9,7 +9,9 @@ Template.system.onCreated(function helloOnCreated() {
     this.date = new ReactiveVar(moment(new Date()));
     $('#aboutUs').hide();
 });
-
+Template.system.onRendered(function(){
+  Session.set("currentPage","Settings");
+});
 Template.system.helpers({
     user() {
         return Template.instance().user.get();

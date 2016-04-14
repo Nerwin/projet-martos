@@ -19,6 +19,16 @@ Template.Hometemplate.onCreated(function helloOnCreated() {
     this.date = new ReactiveVar(moment(new Date())._d);
 });
 
+Template.header.onRendered(function(){
+  Session.set("currentPage","Home page");
+});
+
+Template.header.helpers({
+    currentPage(){
+      return Session.get("currentPage");
+    }
+});
+
 Template.Hometemplate.helpers({
     user() {
         return Template.instance().user.get();
