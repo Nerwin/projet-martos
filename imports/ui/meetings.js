@@ -57,7 +57,7 @@ Template.newMeeting.events({
     },
     'click .addAnswer' (event, instance) {
         const currentpos = Template.instance().counter.get();
-        $('.targetList').append(' <div id="date-' + currentpos + '"><label class="item item-input item-stacked-label"><span class="input-label">New date</span><input type="datetime-local" placeholder="Other date"></label><i class="icon ion-plus-circled addAnswer"></i><i class="icon ion-minus-circled deleteAnswer" id="' + currentpos + '"></i></div>');
+        $('.targetList').append(' <div id="date-' + currentpos + '"><label class="item item-input item-stacked-label"><i class="icon ion-minus-circled deleteAnswer" id="' + currentpos + '"></i><input type="datetime-local" placeholder="Other date"></label></div>');
         instance.counter.set(instance.counter.get() + 1);
     },
     'click .deleteAnswer' (event, instance) {

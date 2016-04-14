@@ -59,7 +59,7 @@ Template.newSurvey.events({
     },
     'click .addAnswer' (event, instance) {
         var currentpos = Template.instance().counter.get();
-        $('.targetList').append(' <div id="date-' + currentpos + '"><label class="item item-input item-stacked-label"><span class="input-label">New answer</span><input type="text" placeholder="Other answer"></label><i class="icon ion-plus-circled addAnswer"></i><i class="icon ion-minus-circled deleteAnswer" id="' + currentpos + '"></i></div>');
+        $('.targetList').append(' <div id="date-' + currentpos + '"><label class="item item-input item-stacked-label"><i class="icon ion-minus-circled deleteAnswer" id="' + currentpos + '"></i><input type="text" placeholder="Other answer"></label></div>');
         instance.counter.set(instance.counter.get() + 1);
     },
     'click .deleteAnswer' (event, instance) {
