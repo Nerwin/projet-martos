@@ -47,7 +47,7 @@ Template.Hometemplate.helpers({
     },
 });
 
-Template.Home.helpers({
+Template.home.helpers({
     isConnectedUser() {
         return Session.get('isConnectedUser');
     }

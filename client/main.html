@@ -6,7 +6,7 @@
     {{#ionBody}} {{#ionNavView}}{{/ionNavView}} {{/ionBody}}
 </body>
 
-<template name="Home">
+<template name="home">
     {{#if isConnectedUser}} {{> header}}
     <div style="margin-top:50px;">
         {{> Hometemplate}}
@@ -62,6 +62,9 @@
         <div class="h1 title">{{currentPage}}</div>
         <button class="button button-clear" id="settings"><i class="icon ion-gear-b"></i></button>
     </div>
-    {{#ionTabs class="tabs-positive tabs-icon-top"}} {{> ionTab title="Home" path="home" iconOff="ios-home" iconOn="ios-home"}} {{> ionTab title="Surveys" path="surveys" iconOff="ios-compose" iconOn="ios-compose"}} {{> ionTab title="Meetings" path="meetings"
-    iconOff="ios-calendar" iconOn="ios-calendar"}} {{/ionTabs}}
+    {{#ionTabs class="tabs-positive tabs-icon-top"}}
+      {{> ionTab title="Home" path="home" iconOff="ios-home" iconOn="ios-home"}}
+      {{> ionTab title="Surveys" path="survey" iconOff="ios-compose" iconOn="ios-compose"}}
+      {{> ionTab title="Meetings" path="meeting" iconOff="ios-calendar" iconOn="ios-calendar"}}
+    {{/ionTabs}}
 </template>
