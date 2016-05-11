@@ -28,70 +28,71 @@
         </div>
     </div>
     {{#each item}}
-    <div style="margin-top:25px">
-        <div class="item item-avatar">
-            <img src="/images/avatar-nico.jpg">
-            <h2>{{user}}</h2>
-            <p>{{date}}</p>
-        </div>
-        {{#if isMeeting}}
-        <!-- Si c'est un meeting -->
-        <div class="item item-body">
-            <div class="row">
-                <div class="col">
-                    <h2>{{libelle}} - {{fin}}</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h2>{{description}}</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <ul class="list">
-                        {{#each this.answer}}
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                                <input type="checkbox" checked>
-                            </label>
-                            {{heure_debut}} - {{heure_fin}}
-                        </li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        {{else}}
-        <div class="item item-body">
-            <div class="row">
-                <div class="col">
-                    <h2>{{title}} - {{endDate}}</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h2>{{description}}</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <ul class="list">
-                        {{#each answer}}
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                                <input type="checkbox" checked>
-                            </label>
-                            {{name}}
-                        </li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        {{/if}}
+    <div class="item item-avatar" style="margin-top:25px">
+        <img src="/images/avatar-nico.jpg">
+        <h2>{{user}}</h2>
+        <p>{{date}}</p>
     </div>
-    {{/each}} {{/ionList}} {{/ionContent}}
+    {{#if isMeeting}}
+    <!-- Si c'est un meeting -->
+    <div class="item item-body">
+        <div class="row">
+            <div class="col">
+                <h2><a class="item item-icon-left" href="#">
+                        <i class="icon ion-calendar"></i> {{libelle}} - {{fin}}
+                    </a> </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="list">
+                    {{#each this.answer}}
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" checked>
+                        </label>
+                        {{heure_debut}} - {{heure_fin}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="item item-body">
+        <div class="row">
+            <div class="col">
+                <h2><a class="item item-icon-left" href="#">
+                      <i class="icon ion-compose"></i> {{libelle}} - {{fin}}
+                  </a> </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="list">
+                    {{#each answer}}
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" checked>
+                        </label>
+                        {{libelle}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/if}} {{/each}} {{/ionList}} {{/ionContent}}
 </template>
 
 <template name="HometemplateNotConnected">
@@ -119,7 +120,6 @@
         <div class="h1 title">{{currentPage}}</div>
         <button class="button button-clear" id="settings"><i class="icon ion-gear-b"></i></button>
     </div>
-    {{#ionTabs class="tabs-positive tabs-icon-top"}} {{> ionTab title="Home" path="home" iconOff="ios-home" iconOn="ios-home"}}
-    {{> ionTab title="Surveys" path="survey" iconOff="ios-compose" iconOn="ios-compose"}} {{> ionTab title="Meetings" path="meeting"
+    {{#ionTabs class="tabs-positive tabs-icon-top"}} {{> ionTab title="Home" path="home" iconOff="ios-home" iconOn="ios-home"}} {{> ionTab title="Surveys" path="survey" iconOff="ios-compose" iconOn="ios-compose"}} {{> ionTab title="Meetings" path="meeting"
     iconOff="ios-calendar" iconOn="ios-calendar"}} {{/ionTabs}}
 </template>

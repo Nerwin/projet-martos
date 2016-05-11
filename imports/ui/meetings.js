@@ -32,9 +32,10 @@ Template.meeting.helpers({
           lieu : "dtc",
           description : "Description de mon premier rdv dtc",
           mail_utilisateur : "n.riquelmebareiro@epsi.fr",
-          debut : date,
-          fin : date
+          debut : "10/20/2016",
+          fin : "11/20/2016"
         };
+        
         var proposition = [{ // obj proposition_rdv de la bdd
           id_proposition : "1",
           heure_debut : "15h30",
@@ -48,12 +49,11 @@ Template.meeting.helpers({
         } ];
         rdv = _.extend(rdv,{answer : proposition});
         tab_formated_rdv.push(rdv);
-        console.log(JSON.stringify(tab_formated_rdv));
         return tab_formated_rdv
 
 
         /*
-          var all_rdv = Meteor.call('findAllRDV',Session.get('currentUser'));
+          var all_rdv = Meteor.call('findAllRDVForCurrentUser',Session.get('currentUser'));
           _.each(all_rdv,function(rdv,index){
             var tab_specific_proposition = Meteor.call('findSpecificProposition',rdv.id_rdv);
             rdv = _.extend(rdv,{answer : tab_specific_proposition});
