@@ -22,18 +22,54 @@ Template.meeting.helpers({
         return Template.instance().date.get();
     },
     item() {
-        const tab = ["1", "2", "3"];
+
+        var date = Template.instance().date.get();
+        const tab_formated_rdv = [];
+
+        var rdv = { // objet rdv de la bdd
+          id_rdv : "1",
+          libelle : "FakeRDV",
+          lieu : "dtc",
+          description : "Description de mon premier rdv dtc",
+          mail_utilisateur : "n.riquelmebareiro@epsi.fr",
+          debut : date,
+          fin : date
+        };
+        var proposition = [{ // obj proposition_rdv de la bdd
+          id_proposition : "1",
+          heure_debut : "15h30",
+          heure_fin : "17h30",
+          id_rdv : "1"
+        },{
+          id_proposition : "2",
+          heure_debut : "16h30",
+          heure_fin : "18h30",
+          id_rdv : "1"
+        } ];
+        rdv = _.extend(rdv,{answer : proposition});
+        tab_formated_rdv.push(rdv);
+        console.log(JSON.stringify(tab_formated_rdv));
+        return tab_formated_rdv
+
+
+        /*
+          var all_rdv = Meteor.call('findAllRDV',Session.get('currentUser'));
+          _.each(all_rdv,function(rdv,index){
+            var tab_specific_proposition = Meteor.call('findSpecificProposition',rdv.id_rdv);
+            rdv = _.extend(rdv,{answer : tab_specific_proposition});
+            tab_formated_rdv.push(rdv);
+          });
+        */
+
+
         return tab;
     },
     isConnectedUser() {
         return Session.get('isConnectedUser');
     },
     answer(){
-      const tab = [{name : "Nicolas"},{name : "Nicholas"},{name : "Hippolyte"}];
-      return tab;
-    },
-    description(){
-      return "Description de mon meeting";
+      const tab = [];
+
     },
     endDate(){
       console.log(moment(new Date()));

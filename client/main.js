@@ -92,5 +92,6 @@ Template.header.events({
 Template.HometemplateNotConnected.events({
     'click #connexion' (event, instance) {
         Session.set('isConnectedUser', true);
+        Session.set('currentUser',"1"); // id utilisateur
     },
 });

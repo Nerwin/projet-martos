@@ -1,20 +1,25 @@
 <template name="survey">
-    {{#if isConnectedUser}} {{>header}} {{#ionContent}}
-    {{#ionList class="list card"}} {{#each item}}
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}} {{#ionList class="list card"}} {{#each item}}
     <div class="item item-avatar" style="margin-top:25px;">
         <img src="/images/avatar-nico.jpg">
         <h2>{{user}}</h2>
         <p>{{date}}</p>
     </div>
+
+
     <div class="item item-body">
         <div class="row">
             <div class="col">
-                <h2>{{title}}</h2>
-                <p>{{endDate}}</p>
-                <p>{{description}}</p>
+                <h2>{{title}} - {{endDate}}</h2>
             </div>
+        </div>
+        <div class="row">
             <div class="col">
-                <h2>Possible answer </h2>
+                <h2>{{description}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <ul class="list">
                     {{#each answer}}
                     <li class="item item-checkbox">
