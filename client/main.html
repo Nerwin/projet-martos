@@ -34,17 +34,62 @@
             <h2>{{user}}</h2>
             <p>{{date}}</p>
         </div>
+        {{#if isMeeting}}
+        <!-- Si c'est un meeting -->
         <div class="item item-body">
-            <img class="full-image" src="/images/constructing.jpg" style="width:150px;height:150px;">
-            <p>
-                <p>{{user}} - posted a new {{target}} .... </p>
-                <p>click and see what's going on :)</p>
-            </p>
-            <p>
-                <a href="#" class="subdued">1 Like</a>
-                <a href="#" class="subdued">5 Comments</a>
-            </p>
+            <div class="row">
+                <div class="col">
+                    <h2>{{libelle}} - {{fin}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2>{{description}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ul class="list">
+                        {{#each this.answer}}
+                        <li class="item item-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" checked>
+                            </label>
+                            {{heure_debut}} - {{heure_fin}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
         </div>
+        {{else}}
+        <div class="item item-body">
+            <div class="row">
+                <div class="col">
+                    <h2>{{title}} - {{endDate}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2>{{description}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ul class="list">
+                        {{#each answer}}
+                        <li class="item item-checkbox">
+                            <label class="checkbox">
+                                <input type="checkbox" checked>
+                            </label>
+                            {{name}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/if}}
     </div>
     {{/each}} {{/ionList}} {{/ionContent}}
 </template>
@@ -74,6 +119,7 @@
         <div class="h1 title">{{currentPage}}</div>
         <button class="button button-clear" id="settings"><i class="icon ion-gear-b"></i></button>
     </div>
-    {{#ionTabs class="tabs-positive tabs-icon-top"}} {{> ionTab title="Home" path="home" iconOff="ios-home" iconOn="ios-home"}} {{> ionTab title="Surveys" path="survey" iconOff="ios-compose" iconOn="ios-compose"}} {{> ionTab title="Meetings" path="meeting"
+    {{#ionTabs class="tabs-positive tabs-icon-top"}} {{> ionTab title="Home" path="home" iconOff="ios-home" iconOn="ios-home"}}
+    {{> ionTab title="Surveys" path="survey" iconOff="ios-compose" iconOn="ios-compose"}} {{> ionTab title="Meetings" path="meeting"
     iconOff="ios-calendar" iconOn="ios-calendar"}} {{/ionTabs}}
 </template>

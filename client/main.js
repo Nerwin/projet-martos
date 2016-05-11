@@ -49,10 +49,14 @@ Template.Hometemplate.helpers({
 
 Template.Hometemplate.events({
   "click #in_progress"(event,instance){
-
+    $("#in_progress").addClass("button-positive");
+    $("#finished").removeClass("button-positive");
+    //TODO tri "en cours"
   },
   "click #finished"(event,instance){
-
+    $("#in_progress").removeClass("button-positive");
+    $("#finished").addClass("button-positive");
+    //TODO tri "terminé"
   },
 });
 
