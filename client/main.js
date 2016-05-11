@@ -47,6 +47,15 @@ Template.Hometemplate.helpers({
     },
 });
 
+Template.Hometemplate.events({
+  "click #in_progress"(event,instance){
+
+  },
+  "click #finished"(event,instance){
+
+  },
+});
+
 Template.home.helpers({
     isConnectedUser() {
         return Session.get('isConnectedUser');
